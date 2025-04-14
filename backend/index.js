@@ -12,7 +12,7 @@ app.get('/api/hello', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 // React fallback (cho phép React tiếp quản tất cả các route còn lại)
-app.get('.*', (req, res) => {
+app.get(/(.*)/, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
